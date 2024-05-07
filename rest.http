@@ -1,0 +1,55 @@
+###register route
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username":"sabari",
+    "email":"sabari@gmail.com",
+    "password":"admin"
+}
+###Login route
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username":"sabari",
+    "password":"admin"
+}
+###protected
+GET http://localhost:3000/protected/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjNhMDdlOTA3OWMzNmNlNmZlYzYzNmYiLCJpYXQiOjE3MTUwNzk3MzksImV4cCI6MTcxNTA4MzMzOX0.mgeerANVvJYZTecjQ1haiK1p54Zpf91POEzbv-DlFxU
+Content-Type: application/json
+
+{
+    "username":"sabari",
+    "password":"admin"
+}
+###add movie
+POST http://localhost:3000/movies/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjM5ZjQwZTZhMjhmMzgyNDMzNWRmNGMiLCJpYXQiOjE3MTUwNzk5MzUsImV4cCI6MTcxNTA4MzUzNX0.3ayWlhtb4oCSeR81oMgN0lytQknNZnFdxSO49LPsV3k
+
+{
+    "title":"sura",
+    "director":"lokesh",
+    "releaseYear":"2023",
+    "genre":"action",
+    "showtimes": [
+        {
+            "dateTime": "2024-05-10T15:00:00Z",
+            "availableSeats": 100
+        },
+        {
+            "dateTime": "2024-05-10T18:00:00Z",
+            "availableSeats": 80
+        }
+    ]
+}
+###get a single movie
+GET http://localhost:3000/movies/6639f785e33f6b2ea883c9df
+
+###get all movies
+GET http://localhost:3000/movies/all
+
+###show showtime
+GET http://localhost:3000/movies/6639f785e33f6b2ea883c9df/showtimes
